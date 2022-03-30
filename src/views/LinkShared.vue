@@ -9,15 +9,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import {useRoute} from "vue-router";
+import {defineComponent, PropType, ref} from 'vue';
+import Notification from "@/types/Notification";
 
 export default defineComponent({
   name: 'LinkShared',
-  setup() {
-    const route = useRoute()
-    const subTitle = ref(route.params.subTitle)
-    const content = ref(route.params.content)
+  props: {
+    currentNotification: {
+      type: Object as PropType<Notification>
+    }
+  },
+  setup(props) {
+    const subTitle = ref(props.currentNotification?.subTitle)
+    const content = ref(props.currentNotification?.content)
 
     return {
       subTitle,

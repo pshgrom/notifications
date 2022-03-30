@@ -85,7 +85,7 @@ export default createStore({
         "thumbnailUrl": "https://via.placeholder.com/150/51aa97",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
         "seen": false,
-        "content": 'https://www.apple.com/iphone-13-pro/'
+        "content": 'https://www.apple.com/apple-music/'
       },
       {
         "id": 10,
@@ -94,7 +94,7 @@ export default createStore({
         "thumbnailUrl": "https://via.placeholder.com/150/810b14",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
         "seen": false,
-        "content": 'https://www.apple.com/iphone-13-pro/'
+        "content": 'https://www.apple.com/shop/accessories/all'
       },
     ]
   },

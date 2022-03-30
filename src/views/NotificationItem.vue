@@ -18,10 +18,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType, ref} from 'vue'
+import {defineComponent, PropType} from 'vue'
 import Notification from "@/types/Notification";
 import {NOTIFICATION_TYPE} from "@/enums/NotificationEnum";
-import {useRouter} from "vue-router";
 
 export default defineComponent({
   name: "NotificationItem",
@@ -31,38 +30,26 @@ export default defineComponent({
     }
   },
   setup(props, {emit}) {
-    const router = useRouter();
-    const currentType = ref<string>('');
 
     const showMoreInfo = (): void => {
       emit('update:seen', true)
+      let type = ''
       switch (props.item?.type) {
         case NOTIFICATION_TYPE.FRIEND_SUGGESTION:
-          currentType.value = 'FriendSuggestion'
+          type = 'FriendSuggestion'
           break
         case NOTIFICATION_TYPE.VIDEO_POSTED:
-          currentType.value = 'VideoPosted'
+          type = 'VideoPosted'
           break
         case NOTIFICATION_TYPE.LINK_SHARED:
-          currentType.value = 'LinkShared'
+          type = 'LinkShared'
           break
       }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      const { id, subTitle, content } = props?.item
-      router.push({
-        name: currentType.value,
-        params: {
-          id,
-          subTitle,
-          content
-        }
-      })
+      emit('updateCurrentType', type, props.item)
     }
 
     return {
       showMoreInfo,
-      currentType
     }
   }
 })
