@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
   .wrapper {
     padding: 15px;
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, .2);
     border-radius: 10px;

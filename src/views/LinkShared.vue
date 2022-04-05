@@ -1,7 +1,5 @@
 <template>
   <div class="content">
-    <h1>Friend Suggestion</h1>
-    <h3>{{ subTitle }}</h3>
     <div class="content__link">
       <a :href="content" target="_blank">Ссылка</a>
     </div>
@@ -20,11 +18,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const subTitle = ref(props.currentNotification?.subTitle)
     const content = ref(props.currentNotification?.content)
 
     return {
-      subTitle,
       content
     }
   }
@@ -36,6 +32,7 @@ export default defineComponent({
   &__link {
     a {
       display: block;
+      text-decoration: underline;
     }
   }
 }
