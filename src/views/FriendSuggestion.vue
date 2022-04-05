@@ -1,15 +1,11 @@
 <template>
   <div class="content">
-    <h1>Friend Suggestion</h1>
-    <h3>{{ subTitle }}</h3>
-    <div class="content__image">
-      <img :src="content" alt="">
-    </div>
+    <button class="notifications__button" @click="check">Просмотреть</button>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType, ref} from 'vue';
+import {defineComponent, PropType} from 'vue';
 import Notification from "@/types/Notification";
 
 export default defineComponent({
@@ -19,13 +15,14 @@ export default defineComponent({
       type: Object as PropType<Notification>
     }
   },
-  setup(props) {
-    const subTitle = ref(props.currentNotification?.subTitle)
-    const content = ref(props.currentNotification?.content)
+  setup() {
+
+    const check = ():void => {
+      console.log('check')
+    }
 
     return {
-      subTitle,
-      content
+      check,
     }
   }
 });
@@ -33,13 +30,8 @@ export default defineComponent({
 
 <style lang="scss">
  .content {
-   &__image {
-     max-width: 350px;
-     margin: auto;
-
-     img {
-       max-width: 100%;
-     }
-   }
+   display: flex;
+   flex-direction: column;
+   align-items: center;
  }
 </style>

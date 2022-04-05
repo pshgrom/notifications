@@ -12,7 +12,6 @@ export default createStore({
         "subTitle": "New friend suggestion from Leanne Graham",
         "thumbnailUrl": "https://via.placeholder.com/150/92c952",
         "type": NOTIFICATION_TYPE.FRIEND_SUGGESTION,
-        "seen": false,
         "content": 'https://www.equatorial.by/sites/default/files/cusco001_11.jpg'
       },
       {
@@ -21,7 +20,6 @@ export default createStore({
         "subTitle": "New video from Ervin Howell",
         "thumbnailUrl": "https://via.placeholder.com/150/771796",
         "type": NOTIFICATION_TYPE.VIDEO_POSTED,
-        "seen": false,
         "content": 'https://www.youtube.com/embed/29ah0Ob2IOg'
       },
       {
@@ -30,7 +28,6 @@ export default createStore({
         "subTitle": "New link from Clementine Bauch",
         "thumbnailUrl": "https://via.placeholder.com/150/24f355",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
-        "seen": false,
         "content": 'https://www.apple.com/iphone-13-pro/'
       },
       {
@@ -39,7 +36,6 @@ export default createStore({
         "subTitle": "New link from Clementine Bauch",
         "thumbnailUrl": "https://via.placeholder.com/150/d32776",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
-        "seen": true,
         "content": 'https://www.apple.com/airpods/'
       },
       {
@@ -48,7 +44,6 @@ export default createStore({
         "subTitle": "New friend suggestion from Chelsey Dietrich",
         "thumbnailUrl": "https://via.placeholder.com/150/f66b97",
         "type": NOTIFICATION_TYPE.FRIEND_SUGGESTION,
-        "seen": false,
         "content": 'https://equatorial.by/sites/default/files/images/norge_fiord001.jpg'
       },
       {
@@ -57,7 +52,6 @@ export default createStore({
         "subTitle": "New video from Mrs. Dennis Schulist",
         "thumbnailUrl": "https://via.placeholder.com/150/56a8c2",
         "type": NOTIFICATION_TYPE.VIDEO_POSTED,
-        "seen": false,
         "content": 'https://www.youtube.com/embed/29ah0Ob2IOg'
       },
       {
@@ -66,7 +60,6 @@ export default createStore({
         "subTitle": "New friend suggestion from Kurtis Weissnat",
         "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc",
         "type": NOTIFICATION_TYPE.FRIEND_SUGGESTION,
-        "seen": false,
         "content": 'https://www.equatorial.by/sites/default/files/cusco001_11.jpg'
       },
       {
@@ -75,7 +68,6 @@ export default createStore({
         "subTitle": "New video from Nicholas V",
         "thumbnailUrl": "https://via.placeholder.com/150/54176f",
         "type": NOTIFICATION_TYPE.VIDEO_POSTED,
-        "seen": false,
         "content": 'https://www.youtube.com/embed/29ah0Ob2IOg'
       },
       {
@@ -84,7 +76,6 @@ export default createStore({
         "subTitle": "New link from Glenna Reichert",
         "thumbnailUrl": "https://via.placeholder.com/150/51aa97",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
-        "seen": false,
         "content": 'https://www.apple.com/apple-music/'
       },
       {
@@ -93,7 +84,6 @@ export default createStore({
         "subTitle": "New link from Clementina DuBuque",
         "thumbnailUrl": "https://via.placeholder.com/150/810b14",
         "type": NOTIFICATION_TYPE.LINK_SHARED,
-        "seen": false,
         "content": 'https://www.apple.com/shop/accessories/all'
       },
     ]

@@ -1,49 +1,28 @@
 <template>
   <div class="content">
-    <h1>Video Posted</h1>
-    <h3>{{ subTitle }}</h3>
-    <button style="margin-bottom: 20px" @click="action">Пожаловаться</button>
-    <div class="content__video">
-      <iframe width="350" height="300"
-        :src="content">
-      </iframe>
-    </div>
+    <button class="notifications__button" @click="openPlayer">Открыть плеер</button>
+    <button class="notifications__button" @click="action">Пожаловаться</button>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType, ref} from 'vue';
-import Notification from "@/types/Notification";
+import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: 'VideoPosted',
-  props: {
-    currentNotification: {
-      type: Object as PropType<Notification>
-    }
-  },
-  setup(props) {
-    const subTitle = ref(props.currentNotification?.subTitle)
-    const content = ref(props.currentNotification?.content)
-
+  setup() {
     const action = ():void => {
       console.log('complaint')
     }
 
+    const openPlayer = ():void => {
+      console.log('open player')
+    }
+
     return {
-      subTitle,
-      content,
-      action
+      action,
+      openPlayer
     }
   }
 });
 </script>
-
-<style lang="scss">
-.content {
-  &__video {
-    display: flex;
-    justify-content: center;
-  }
-}
-</style>

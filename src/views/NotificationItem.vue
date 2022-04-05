@@ -1,57 +1,43 @@
 <template>
-  <div class="notification-item" @click="showMoreInfo">
+  <div class="notification-item">
     <div class="notification-item__left">
       <div class="notification-item__image">
         <img :src="item.thumbnailUrl" alt="">
       </div>
     </div>
     <div class="notification-item__right">
-      <div class="notification-item__title">
-        {{ item.mainTitle }}
+      <div class="notification-item__wrap">
+        <div class="notification-item__title">
+          {{ item.mainTitle }}
+        </div>
+        <div class="notification-item__subtitle">
+          {{ item.subTitle }}
+        </div>
       </div>
-      <div class="notification-item__subtitle">
-        {{ item.subTitle }}
-      </div>
+      <component :is="item.type" :currentNotification="item" />
     </div>
-    <div class="notification-item__mark" :class="{'notification-item__mark_check': item.seen}"></div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from 'vue'
+import { defineComponent, PropType } from 'vue'
 import Notification from "@/types/Notification";
-import {NOTIFICATION_TYPE} from "@/enums/NotificationEnum";
+import FriendSuggestion from "@/views/FriendSuggestion.vue";
+import LinkShared from "@/views/LinkShared.vue";
+import VideoPosted from "@/views/VideoPosted.vue";
 
 export default defineComponent({
   name: "NotificationItem",
+  components: {
+    FriendSuggestion,
+    LinkShared,
+    VideoPosted
+  },
   props: {
     item: {
       type: Object as PropType<Notification>
     }
   },
-  setup(props, {emit}) {
-
-    const showMoreInfo = (): void => {
-      emit('update:seen', true)
-      let type = ''
-      switch (props.item?.type) {
-        case NOTIFICATION_TYPE.FRIEND_SUGGESTION:
-          type = 'FriendSuggestion'
-          break
-        case NOTIFICATION_TYPE.VIDEO_POSTED:
-          type = 'VideoPosted'
-          break
-        case NOTIFICATION_TYPE.LINK_SHARED:
-          type = 'LinkShared'
-          break
-      }
-      emit('updateCurrentType', type, props.item)
-    }
-
-    return {
-      showMoreInfo,
-    }
-  }
 })
 </script>
 
@@ -66,30 +52,20 @@ export default defineComponent({
     border-radius: 5px;
     position: relative;
 
-    &__right {
-      max-width: 200px;
+    &__wrap {
+     max-width: 200px;
     }
 
-    &__mark {
-      &:after {
-        content: '';
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(blue, .5);
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-      }
-
-      &_check {
-        display: none;
-      }
+    &__right {
+      display: flex;
+      align-items: center;
+      width: 348px;
+      justify-content: space-between;
     }
 
     &__left {
       margin-right: 15px;
+      min-width: 60px;
     }
 
     &__image {
@@ -101,10 +77,6 @@ export default defineComponent({
         max-width: 100%;
         border-radius: 50%;
       }
-    }
-
-    &:hover {
-      background: rgba(0,0,0, .1);
     }
   }
 </style>
