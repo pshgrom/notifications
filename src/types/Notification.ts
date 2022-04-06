@@ -4,7 +4,6 @@ interface Notification {
   subTitle: string,
   thumbnailUrl: string,
   type: string,
-  seen: boolean,
   content: string,
 }
 
