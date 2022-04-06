@@ -1,30 +1,13 @@
 <template>
-  <div class="notification-item">
-    <div class="notification-item__left">
-      <div class="notification-item__image">
-        <img :src="item.thumbnailUrl" alt="">
-      </div>
-    </div>
-    <div class="notification-item__right">
-      <div class="notification-item__wrap">
-        <div class="notification-item__title">
-          {{ item.mainTitle }}
-        </div>
-        <div class="notification-item__subtitle">
-          {{ item.subTitle }}
-        </div>
-      </div>
-      <component :is="item.type" :currentNotification="item" />
-    </div>
-  </div>
+  <component :is="item.type" :item="item" />
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import Notification from "@/types/Notification";
-import FriendSuggestion from "@/views/FriendSuggestion.vue";
-import LinkShared from "@/views/LinkShared.vue";
-import VideoPosted from "@/views/VideoPosted.vue";
+import FriendSuggestion from "@/components/FriendSuggestion.vue";
+import LinkShared from "@/components/LinkShared.vue";
+import VideoPosted from "@/components/VideoPosted.vue";
 
 export default defineComponent({
   name: "NotificationItem",
@@ -41,7 +24,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .notification-item {
     display: flex;
     align-items: center;
@@ -77,6 +60,19 @@ export default defineComponent({
         max-width: 100%;
         border-radius: 50%;
       }
+    }
+
+    &__link {
+      a {
+        display: block;
+        text-decoration: underline;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 </style>

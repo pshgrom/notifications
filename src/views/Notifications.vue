@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
-import NotificationItem from './NotificationItem.vue'
+import NotificationItem from '../components/NotificationItem.vue'
 import Notification from "@/types/Notification";
 
 export default defineComponent({
